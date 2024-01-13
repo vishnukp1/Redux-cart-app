@@ -9,7 +9,7 @@ const cartSlice = createSlice({
       const existingItem = state.items.find((item) => item.id === action.payload.id);
 
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity = 1;
       } else {
         state.items.push({ ...action.payload, quantity: 1 });
       }
@@ -27,7 +27,6 @@ const cartSlice = createSlice({
       const item = state.items.find((item) => item.id === action.payload);
       if (item && item.quantity > 0) {
         item.quantity -= 1;
-
         // Remove the item from the cart if the quantity becomes zero
         if (item.quantity === 0) {
           state.items = state.items.filter((cartItem) => cartItem.id !== item.id);

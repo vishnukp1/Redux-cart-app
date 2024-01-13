@@ -13,10 +13,11 @@ const Cart = () => {
       <ul>
         {cart.map((item) => (
           <li key={item.id}>
-            {item.name} - Quantity: {item.quantity}, Price: ${item.price * item.quantity}{' '}
+            {item.name}  Price: ${item.price * item.quantity}{' '}
             <button onClick={() => dispatch(increaseQuantity(item.id))}>
               Increase Quantity
             </button>
+            Quantity: <h4>{item.quantity}</h4>
             <button onClick={() => dispatch(decreaseQuantity(item.id))}>
               Decrease Quantity
             </button>
